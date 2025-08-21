@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:15
+    container_name: ajinkya_db
+    environment:
+      POSTGRES_DB: ajinkya_2401199_db
+      POSTGRES_USER: ajinkya_2401199
+      POSTGRES_PASSWORD: Ajinkya@2401199
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: ajinkya_web
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DJANGO_SUPERUSER_USERNAME: ajinkya_admin
+      DJANGO_SUPERUSER_PASSWORD: Admin@2401199
+      DJANGO_SUPERUSER_EMAIL: ajinkya@example.com
+
+volumes:
+  db_data:
