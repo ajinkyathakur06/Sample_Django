@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'ajinkya_db',
         'USER': 'ajinkya',
         'PASSWORD': '2401199',
-        'HOST': 'ajinkya-db',  # instead of 127.0.0.1
+        'HOST': 'host.docker.internal',  # instead of 127.0.0.1
         'PORT': '5433',
     }
 }
